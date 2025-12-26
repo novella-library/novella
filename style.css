@@ -1,0 +1,410 @@
+:root {
+    /* تعريف متغيرات CSS عامة يمكن استخدامها في كل الملف */
+    --primary: #1FAAFF; /* اللون الأساسي (أزرق) */
+    --accent: #FF8C22;  /* لون ثانوي (برتقالي) */
+    --bg: #05070a;      /* لون خلفية الموقع */
+}
+
+* {
+    /* إعادة ضبط القيم الافتراضية لكل العناصر */
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; /* يجعل الحسابات تشمل padding و border */
+    cursor: none; /* إخفاء مؤشر الفأرة الافتراضي لاستخدام مؤشر مخصص */
+}
+
+body {
+    /* تنسيق الجسم الرئيسي للصفحة */
+    background-color: var(--bg); /* تعيين لون الخلفية */
+    color: white; /* لون النص */
+    font-family: 'white',sans-serif; /* نوع الخط */
+    overflow-x: hidden; /* منع التمرير الأفقي */
+}
+
+/* المؤشر المخصص */
+* {
+    cursor: default;
+}
+a, button {
+    cursor: pointer;
+}
+
+
+/* عناصر الخلفية */
+.universe-bg {
+    position: fixed; 
+    inset: 0; /* تغطية كامل الشاشة */
+    z-index: -1; /* وضعها خلف المحتوى */
+    overflow: hidden; 
+    background: radial-gradient(circle at center, #0a1018 0%, #05070a 100%);
+    /* خلفية متدرجة تعطي تأثير فضائي */
+}
+
+.glow-orb {
+    position: absolute; 
+    width: 40vw; 
+    height: 40vw;
+    filter: blur(120px); /* تمويه قوي لإعطاء توهج */
+    opacity: 0.15; /* شفافية */
+    border-radius: 50%; /* شكل دائري */
+}
+
+.blue-orb { 
+    background: var(--primary); /* كرة زرقاء */
+    top: -10%; 
+    left: -10%; 
+}
+
+.orange-orb { 
+    background: var(--accent); /* كرة برتقالية */
+    bottom: -10%; 
+    right: -10%; 
+}
+
+/* الكتب العائمة */
+.floating-assets { 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.floating-book { 
+    position: absolute; 
+    width: 150px; 
+    opacity: 0.5; /* شفافية افتراضية */
+    filter: blur(1px); /* تمويه خفيف */
+    transition: 0.5s; /* انتقال ناعم */
+}
+
+.floating-book:hover { 
+    opacity: 0.8; /* زيادة الوضوح عند المرور */
+    filter: blur(0); /* إزالة التمويه */
+}
+
+.b1 { 
+    top: 15%; 
+    right: 15%; 
+    animation: float 8s infinite ease-in-out; /* حركة عائمة */
+}
+
+.b3 { 
+    top: 45%; 
+    right: 25%; 
+    animation: float 16s infinite ease-in-out; /* حركة عائمة */
+}
+
+.b2 { 
+    bottom: 20%; 
+    left: 11%; 
+    animation: float 10s infinite ease-in-out reverse; /* حركة معكوسة */
+    width: 100px; 
+}
+
+.b4 { 
+    bottom: 40%; 
+    left: 19%; 
+    animation: float 16s infinite ease-in-out reverse; /* حركة معكوسة */
+    width: 200px; 
+}
+/* تعريف حركة الطفو */
+@keyframes float {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(5deg); 
+        /* بداية ونهاية الحركة */
+    }
+    50% { 
+        transform: translate(-20px, -40px) rotate(-5deg); 
+        /* منتصف الحركة */
+    }
+}
+
+html {
+    scroll-behavior: smooth;  /* تمرير سلس عند الانتقال للـ section */
+}
+
+/* النصوص والتخطيط */
+.glass-nav {
+    display: flex;
+    justify-content: space-between; /* الشعار على اليسار، القائمة على اليمين */
+    align-items: center;
+    padding: 0.8rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    background-color: rgba(5,7,10,0.6);
+}
+
+
+/*  LOGO */
+.logo {
+    display: flex;
+    align-items: center;  /* محاذاة الشعار والنص عموديًا */
+    height: 50px;
+}
+
+.logo img {
+    margin-top: 25px;
+    width: 130px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 800;
+
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.menu a {
+    margin-left: 12px;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: #1FAAFF;
+}
+
+/* زر الجوال */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .menu-toggle {
+        display: block; /* إظهار زر ☰ */
+    }
+
+    .menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: rgba(5,7,10,0.95);
+        display: none;              /* مخفية افتراضيًا */
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .menu a {
+        border: none; /* تأكيد إزالة أي إطار */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 0.8rem 0;
+        margin: 0;
+    }
+
+    .menu.show {
+        display: flex; /* تظهر عند الضغط */
+    }
+}
+
+/*----------------------------------------------------------------------------*/
+
+.hero-center {
+    height: 110vh; /* ارتفاع كامل الشاشة */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center; 
+    padding: 0 10%;
+    margin-bottom: 3PX;
+    
+}
+
+.main-title { 
+    font-size: clamp(2.6rem, 8vw, 6rem); /* حجم خط متجاوب */
+    line-height: 1; 
+    font-weight: 900; 
+    margin-top: 5rem;
+}
+
+/* نص بتدرج لوني */
+.gradient-text {
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle { 
+    font-size: clamp(1.5rem, 5vw, 1.7rem);  
+    color: #fbfcfd; 
+    margin: 5rem 0; 
+    max-width: 900px; 
+    margin-inline: auto; 
+}
+
+/* الأزرار */
+.prime-btn {
+    background: var(--primary); 
+    color: white; 
+    border: none;
+    padding: 1.2rem 2.5rem; 
+    border-radius: 40px; /* زر دائري */
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(31, 170, 255, 0.3); /* ظل */
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.prime-btn:hover { 
+    transform: scale(1.05); /* تكبير خفيف */
+    background: #1594e0; 
+}
+
+/* الفوتر */
+footer { 
+    padding: 80px 5%; 
+    background: #080c14; 
+    text-align: center; 
+}
+
+.social-links {
+    display: flex;               /* تفعيل Flexbox */
+    flex-direction: row;         /* ترتيب العناصر أفقياً */
+    justify-content: center;     /* توسيط الأيقونات أفقياً */
+    align-items: center;         /* محاذاة عمودية متساوية */
+    gap: 25px;                   /* مسافة بين الأيقونات */
+}
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background-color: #1FAAFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background-color: #FF8C22;
+    transform: scale(1.2);
+}
+
+#contact p {
+    text-align: center;          /* توسيط النص */
+    padding: 17px 0;             /* مسافة من الأعلى والأسفل */
+    color: #555;                 /* لون النص */
+    font-size: 14px;             /* حجم الخط */
+    position: relative;          /* يمكن تغييره إلى fixed إذا أحببت */
+    bottom: 0;
+    width: 100%;
+}
+
+#about {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+}
+
+.email-link { 
+    font-size: clamp(1rem, 5vw, 4rem); 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 800; 
+    display: block; 
+    margin: 2rem 0;
+}
+
+.email-link:hover { 
+    color: var(--accent); /* تغيير اللون عند المرور */
+}
+
+/*  من نحن */
+
+.about-us {
+    background-color: #0f1726;  /* خلفية خفيفة */
+    padding: 80px 20px;         /* مسافة حول المحتوى */
+    text-align: center;          /* توسيط النص */
+}
+
+.about-us .container {
+    max-width: 800px;            /* أقصى عرض */
+    margin: 0 auto;              /* توسيط الحاوية */
+}
+
+.about-us h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.about-us p {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    line-height: 1.6;
+    color: #dcdbdb;
+    margin-bottom: 15px;
+}
+
+
+/* قسم الكتب */
+.books-section {
+    padding: 110px 9%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 120px;
+    font-weight: 900;
+
+    color: rgb(255, 255, 255);
+}
+
+/* Grid */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+/* بطاقة الكتاب */
+.book-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 25px;
+    transition: 0.4s;
+    backdrop-filter: blur(8px);
+}
+
+.book-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(31,170,255,0.2);
+}
+
+/* صورة الكتاب */
+.book-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* العنوان */
+.book-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* الوصف */
+.book-card p {
+    font-size: 0.95rem;
+    color: #cfd6ff;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<!-- تعريف نوع المستند -->
+<html lang="en">
+
+<head>
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/png" href="Photo/Logo No.png">
+
+    <!-- ترميز يدعم العربية -->
+    <meta charset="UTF-8">
+
+    <!-- جعل الموقع متجاوب -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- عنوان الصفحة -->
+    <title>novella | نوفيلا</title>
+
+    <!-- ربط ملف CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- مؤشر مخصص -->
+    <div class="cursor"></div>
+
+    <!-- خلفية الموقع -->
+    <div class="universe-bg">
+        <!-- كرات ضوئية للتأثير -->
+        <div class="glow-orb blue-orb"></div>
+        <div class="glow-orb orange-orb"></div>
+
+        <!-- عناصر عائمة -->
+        <div class="floating-assets">
+
+            <!-- كتاب عائم 1 -->
+            <div class="floating-book b1">
+                <svg viewBox="0 0 100 120" class="book-svg">
+                    <rect x="10" y="10" width="70" height="100" rx="4" fill="url(#grad-blue)" />
+                    <rect x="15" y="10" width="5" height="100" fill="rgba(0,0,0,0.2)" />
+                </svg>
+            </div>
+
+            <!-- كتاب عائم 2 -->
+            <div class="floating-book b2">
+                <svg viewBox="0 0 100 120" class="book-svg">
+                    <rect x="10" y="10" width="70" height="100" rx="4" fill="url(#grad-orange)" />
+                    <rect x="15" y="10" width="5" height="100" fill="rgba(0,0,0,0.2)" />
+                </svg>
+            </div>
+
+            <!-- كتاب عائم 3 -->
+            <div class="floating-book b3">
+                <svg viewBox="0 0 100 120" class="book-svg">
+                    <rect x="10" y="10" width="70" height="100" rx="4" fill="url(#grad-white)" />
+                    <rect x="15" y="10" width="5" height="100" fill="rgba(0,0,0,0.2)" />
+                </svg>
+            </div>
+
+            <!-- كتاب عائم 4 -->
+            <div class="floating-book b4">
+                <svg viewBox="0 0 100 120" class="book-svg">
+                    <rect x="10" y="10" width="70" height="100" rx="4" fill="url(#grad-white)" />
+                    <rect x="15" y="10" width="5" height="100" fill="rgba(0,0,0,0.2)" />
+                </svg>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SVG مخفي لتعريف التدرجات اللونية -->
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1FAAFF" />
+                <stop offset="100%" stop-color="#03577F" />
+            </linearGradient>
+
+            <linearGradient id="grad-orange" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFC543" />
+                <stop offset="100%" stop-color="#FF8C22" />
+            </linearGradient>
+
+            <linearGradient id="grad-white" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" />
+                <stop offset="100%" stop-color="#E0E0E0" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- شريط التنقل -->
+    <nav class="glass-nav">
+
+        <!-- الشعار -->
+        <div class="logo">
+            <img src="Photo/logo.png" alt="Novella Logo">
+            <span class="logo-text">novella | نوفيلا</span>
+        </div>
+
+        <!-- زر القائمة للجوال -->
+        <div class="menu-toggle" id="menuToggle">☰</div>
+
+        <!-- روابط القائمة -->
+        <div class="menu" id="menu">
+            <!-- ينتقل إلى القسم الذي id="home" -->
+            <a href="#home" class="btn-pill">الرئيسية</a>
+
+            <a href="#books" class="btn-pill">الأقسام</a>
+
+            <!-- ينتقل إلى القسم الذي id="about" -->
+            <a href="#about" class="btn-pill-about">من نحن</a>
+
+            <!-- ينتقل إلى القسم الذي id="contact" -->
+            <a href="#contact" class="btn-pill">تواصل معنا</a>
+        </div>
+
+    </nav>
+
+    <!-- القسم الرئيسي -->
+    <header class="hero-center" id="home">
+        <div class="hero-inner">
+
+            <h1 class="main-title">
+                <span class="gradient-text">novella | نوفيلا</span>
+            </h1>
+
+            <p class="subtitle">
+                📚 مكتبة للقراءة والإلهام، تجمع بين المتعة والمعرفة في كل صفحة 📖✨
+                <br>
+                📚 A library for reading and inspiration, enjoyment and knowledge on every page📖✨
+            </p>
+
+        </div>
+    </header>
+
+    <!-- قسم الكتب -->
+    <section class="books-section" id="books">
+
+        <h2 class="section-title">📌 الأقسام</h2>
+
+        <div class="books-grid">
+
+            <!-- كتاب 1 -->
+            <div class="book-card">
+                <img src="Photo/Bookchild.jpg" alt="قصص اطفال">
+                <h3>قصص أطفال</h3>
+                <p>لينبت طفلك بين القصص</p>
+                <a href="bookchild.html" class="prime-btn">عرض القصص</a>
+            </div>
+
+            <!-- كتاب 2 -->
+            <div class="book-card">
+                <img src="Photo/Novella.jpg" alt="روايات">
+                <h3>روايات متنوعة</h3>
+                <p>لتغذي شغفك في المطالعة</p>
+                <a href="novella.html" class="prime-btn">عرض الروايات</a>
+            </div>
+
+            <!-- كتاب 3 -->
+            <div class="book-card">
+                <img src="Photo/Book.jpg" alt="كتب مفيدة">
+                <h3>كتب مفيدة</h3>
+                <p>كل ما هو مفيد وينفعك</p>
+                <a href="bookbook.html" class="prime-btn">عرض الكتب</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="about-us" id="about">
+        <div class="container">
+            <h2>من نحن؟</h2>
+            <p>
+                نحن فريق Novella، نهدف إلى تقديم أفضل الكتب والقصص التعليمية والترفيهية لكل محبي القراءة. 
+                نسعى دائمًا لتوفير محتوى ممتع وملهم يجمع بين المعرفة والمتعة في كل صفحة.
+            </p>
+            <p>
+                هدفنا هو تشجيع القراءة وتنمية الثقافة والإبداع لدى جميع الأعمار، مع تجربة مستخدم سهلة وجذابة.
+            </p>
+        </div>
+    </section>
+
+
+
+    <!-- الفوتر -->
+    <footer id="contact">
+
+        <div class="footer-wrap">
+            <div class="contact-card">
+
+                <!--<h2 id="about" > نوفيلا مكتبة رقمية تهدف إلى نشر ثقافة القراءة والمعرفة بأسلوب عصري</h2>-->
+                <h2 id="about" >نحب سماع آرائكم وأفكاركم! إذا كان لديك أي سؤال أو اقتراح، لا تتردد في مراسلتنا عبر البريد أو وسائل التواصل الاجتماعي.</h2>
+                
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=novella.official.email@gmail.com&su=من%20الموقع%20-%20From%20web" target="_blank" class="email-link">
+                    novella.official.email@gmail.com
+                </a>
+
+                <!-- أيقونات التواصل -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/novella_library/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61585602473121"><i class="fab fa-facebook"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=novella.official.email@gmail.com&su=من%20الموقع%20-%20From%20web"><i class="fas fa-envelope"></i></a>
+                </div>
+
+            </div>
+        </div>
+        
+        <p>Novella © حقوق النشر محفوظة 2026-2025</p>
+
+    </footer>
+
+    <!-- ربط الجافاسكربت -->
+    <script src="script.js"></script>
+
+</body>
+</html>

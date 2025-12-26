@@ -1,0 +1,238 @@
+:root {
+    --primary: #1FAAFF; /* اللون الأساسي */
+    --accent: #FF8C22;  /* اللون الثانوي */
+    --bg: #05070a;      /* خلفية الموقع */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default; /* مؤشر مخصص يمكن تغييره لاحقًا */
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg);
+    color: white;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* الخلفية الكونية */
+.universe-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at center, #0a1018 0%, #05070a 100%);
+    overflow: hidden;
+}
+
+.glow-orb {
+    position: absolute;
+    width: 40vw;
+    height: 40vw;
+    filter: blur(120px);
+    opacity: 0.15;
+    border-radius: 50%;
+}
+
+.blue-orb { 
+    background: var(--primary);
+    top: -10%; 
+    left: -10%; 
+}
+
+.orange-orb { 
+    background: var(--accent);
+    bottom: -10%; 
+    right: -10%; 
+}
+
+/* الكتب العائمة (زينة) */
+.floating-assets { 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.floating-book { 
+    position: absolute; 
+    width: 150px; 
+    opacity: 0.5; 
+    filter: blur(1px);
+    transition: 0.5s;
+}
+
+.floating-book:hover { 
+    opacity: 0.8; 
+    filter: blur(0);
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) rotate(5deg); }
+    50% { transform: translate(-20px, -40px) rotate(-5deg); }
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    width: 200px;
+}
+
+/* قسم الكتب */
+.books-section {
+    padding: 10px 8% 100px 8%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 900;
+}
+
+/* شبكة الكتب */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+/* بطاقة الكتاب */
+.book-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 25px;
+    transition: 0.4s;
+    backdrop-filter: blur(8px);
+    text-align: center;
+}
+
+.book-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(31,170,255,0.2);
+}
+
+/* صورة الكتاب */
+.book-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+/* عنوان الكتاب */
+.book-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* زر التفاصيل */
+.book-card a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.book-card a:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+}
+
+/* رابط العودة */
+.back-home {
+    display: inline-block;
+    margin: 40px auto 0;
+    padding: 12px 25px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-home:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+}
+
+/* استجابة للشاشات الصغيرة */
+@media screen and (max-width: 768px) {
+    .books-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+}
+/* أوراق إضافية بأحجام مختلفة */
+.paper.small {
+    width: 90px;
+    height: 120px;
+    opacity: 0.5;
+    animation-duration: 18s;
+}
+
+.paper.medium {
+    width: 140px;
+    height: 180px;
+    opacity: 0.7;
+    animation-duration: 22s;
+}
+
+.paper.large {
+    width: 190px;
+    height: 240px;
+    opacity: 0.4;
+    animation-duration: 28s;
+}
+
+/* نقاط معرفة (تعطي إحساس التفكير والتنظيم) */
+.knowledge-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(31,170,255,0.6);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+.useful-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to bottom, #08121f, #05070a);
+    overflow: hidden;
+}
+
+.paper {
+    position: absolute;
+    width: 140px;
+    height: 180px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    animation: floatPaper 22s infinite ease-in-out;
+}
+
+.paper::after {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.25),
+        rgba(255,255,255,0.25) 1px,
+        transparent 1px,
+        transparent 7px
+    );
+}
+
+@keyframes floatPaper {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-50px); }
+}                                    
